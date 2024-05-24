@@ -18,7 +18,7 @@ while True:
         try:
             os.chdir((["../"] + os.listdir())[int(c)])
         except NotADirectoryError:
-            sys.exit("It's canno't openable.")
+            sys.exit("It's can't openable.")
     except ValueError:
         if c == "e":
             break
