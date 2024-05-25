@@ -1,7 +1,13 @@
 import sys
 
-def clipboard(command):
-    pass
+EMPTY_CLIPBOARD_CONTENTS = {"fname":None,"content":None}
+clipboard_contents = EMPTY_CLIPBOARD_CONTENTS
+
+def clipboard(command: str):
+    args = command.split(" ")
+    if clipboard_contents == EMPTY_CLIPBOARD_CONTENTS:
+        sys.exit("\x1b[31mThere are no items on the clipboard.\x1b[0m")
+    
 
 cTof = {
     "clip":clipboard,
@@ -9,7 +15,7 @@ cTof = {
 }
 
 
-def main(command):
+def main(command: str):
     try:
         f = cTof[command]
     except KeyError:
