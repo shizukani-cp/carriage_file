@@ -24,7 +24,7 @@ while True:
         except NotADirectoryError:
             sys.exit("\x1b[31mIt's can't openable.\x1b[0m")
     except ValueError:
-        if c == "e":
+        if c == "e" or c == "exit":
             break
         else:
             sys.exit("\x1b[31mCommand not found.\x1b[0m")
