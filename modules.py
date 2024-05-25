@@ -22,7 +22,7 @@ cTof = {
 
 def main(command: str):
     try:
-        f = cTof[command]
+        f = cTof[command.split(" ")[0]]
     except KeyError:
         sys.exit("\x1b[31mCommand not found.\x1b[0m")
     else:
