@@ -14,13 +14,11 @@ def clipboard(command: str):
         pass
     else:
         sys.exit("\x1b[31mSubcommand not found.\x1b[0m")
-    
 
 cTof = {
     "clipboard":clipboard,
     "c":clipboard
 }
-
 
 def main(command: str):
     try:
