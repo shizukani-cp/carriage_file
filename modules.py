@@ -4,7 +4,8 @@ def clipboard(command):
     pass
 
 cTof = {
-    "clip":clipboard
+    "clip":clipboard,
+    "c":clipboard
 }
 
 
