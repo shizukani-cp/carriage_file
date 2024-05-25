@@ -9,10 +9,14 @@ elif len(sys.argv) > 2:
     sys.exit("\x1b[31mToo many arguments.\x1b[0m")
 
 while True:
-    print("\x1b[32m" + os.getcwd() + "\x1b[0m")
-    print("0\t..")
+    print("\x1b[34m" + os.getcwd() + "\x1b[0m")
+    print("0\t\x1b[32m..\x1b[0m")
     for i in range(len(os.listdir())):
-        print(str(i + 1) + "\t" + os.listdir()[i])
+        print(str(i + 1) + "\t", end="")
+        if os.path.isfile(os.listdir()[i]):
+            print("\x1b[33m" + os.listdir()[i] + "\x1b[0m")
+        else:
+            print("\x1b[32m" + os.listdir()[i] + "\x1b[0m")
     c = input("> ")
     try:
         try:
