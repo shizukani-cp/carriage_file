@@ -4,12 +4,12 @@ if len(sys.argv) == 2:
     try:
         os.chdir(sys.argv[1])
     except FileNotFoundError:
-        sys.exit("Directory not found.")
+        sys.exit("\x1b[31mDirectory not found.\x1b[0m")
 elif len(sys.argv) > 2:
-    sys.exit("Too many arguments.")
+    sys.exit("\x1b[31mToo many arguments.\x1b[0m")
 
 while True:
-    print(os.getcwd())
+    print("\x1b[32m" + os.getcwd() + "\x1b[0m")
     print("0\t..")
     for i in range(len(os.listdir())):
         print(str(i + 1) + "\t" + os.listdir()[i])
@@ -18,10 +18,10 @@ while True:
         try:
             os.chdir((["../"] + os.listdir())[int(c)])
         except NotADirectoryError:
-            sys.exit("It's can't openable.")
+            sys.exit("\x1b[31mIt's can't openable.\x1b[0m")
     except ValueError:
         if c == "e":
             break
         else:
-            sys.exit("Command not found.")
+            sys.exit("\x1b[31mCommand not found.\x1b[0m")
 sys.exit(0)
