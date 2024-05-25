@@ -17,7 +17,7 @@ def clipboard(command: str):
     
 
 cTof = {
-    "clip":clipboard,
+    "clipboard":clipboard,
     "c":clipboard
 }
 
