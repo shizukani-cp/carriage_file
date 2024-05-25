@@ -1,4 +1,5 @@
 import sys, os
+import modules
 
 if len(sys.argv) == 2:
     try:
@@ -27,5 +28,5 @@ while True:
         if c == "e" or c == "exit":
             break
         else:
-            sys.exit("\x1b[31mCommand not found.\x1b[0m")
+            modules.main(c)
 sys.exit(0)
