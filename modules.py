@@ -1,3 +1,17 @@
+import sys
+
+def clipboard(command):
+    pass
+
+cTof = {
+    "clip":clipboard
+}
+
 
 def main(command):
-    pass
+    try:
+        f = cTof[command]
+    except KeyError:
+        sys.exit("\x1b[31mCommand not found.\x1b[0m")
+    else:
+        f(command)
