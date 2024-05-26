@@ -22,7 +22,7 @@ while True:
     try:
         os.chdir((["../"] + os.listdir())[int(c[0])])
     except NotADirectoryError:
-        subprocess.run("vim " + os.listdir()[int(c[0])], shell=True)
+        subprocess.run("vim " + os.listdir()[int(c[0]) - 1], shell=True)
     except ValueError:
         if c[0] in ["e", "exit", "q", "quit"]:
             break
