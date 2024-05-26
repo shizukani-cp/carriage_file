@@ -5,7 +5,7 @@ clipboard_contents = EMPTY_CLIPBOARD_CONTENTS
 
 def clipboard(args: list[str]):
     try:
-        if not os.path.isfile(os.listdir()[args[2]]):
+        if not os.path.isfile(os.listdir()[int(args[2]) - 1]):
             sys.exit("\x1b[31mIs not file.\x1b[0m")
     except IndexError:
         sys.exit("\x1b[31mMissing arguments.\x1b[0m")
