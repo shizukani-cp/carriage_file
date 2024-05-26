@@ -24,7 +24,7 @@ while True:
     except NotADirectoryError:
         subprocess.run("vim " + os.listdir()[int(c[0])], shell=True)
     except ValueError:
-        if c[0] == "e" or c[0] == "exit":
+        if c[0] in ["e", "exit", "q", "quit"]:
             break
         else:
             modules.main(c)
