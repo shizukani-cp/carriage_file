@@ -18,15 +18,15 @@ while True:
             print("\x1b[33m" + os.listdir()[i] + "\x1b[0m")
         else:
             print("\x1b[32m" + os.listdir()[i] + "\x1b[0m")
-    c = input("> ")
+    c = input("> ").split(" ")
     try:
         try:
-            os.chdir((["../"] + os.listdir())[int(c)])
+            os.chdir((["../"] + os.listdir())[int(c[0])])
         except NotADirectoryError:
             sys.exit("\x1b[31mIt's can't openable.\x1b[0m")
     except ValueError:
-        if c == "e" or c == "exit":
+        if c[0] == "e" or c[0] == "exit":
             break
         else:
-            modules.main(c.split(" "))
+            modules.main(c)
 sys.exit(0)
