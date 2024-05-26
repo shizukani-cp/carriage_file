@@ -7,8 +7,11 @@ def clipboard(args: list[str]):
     if args[1] == "v":
         if not clipboard_contents == EMPTY_CLIPBOARD_CONTENTS:
             sys.exit("\x1b[31mThere are no items on the clipboard.\x1b[0m")
-        with open(clipboard_contents["fname"], "xb") as f:
-            f.write(clipboard_contents["content"])
+        try:
+            with open(clipboard_contents["fname"], "xb") as f:
+                f.write(clipboard_contents["content"])
+        except FileExistsError:
+            sys.exit("\x1b[31mFile already exists.\x1b[0m")
     elif args[1] == "c":
         try:
          if not os.path.isfile(os.listdir()[int(args[2]) - 1]):
