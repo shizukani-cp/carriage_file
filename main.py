@@ -28,5 +28,5 @@ while True:
         if c == "e" or c == "exit":
             break
         else:
-            modules.main(c)
+            modules.main(c.split(" "))
 sys.exit(0)
