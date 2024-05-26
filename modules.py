@@ -46,13 +46,21 @@ def delete(args: list[str]):
 def rename(args: list[str]):
     os.rename(num_to_name(args[1]), args[2])
 
+def newfile(args: list[str]):
+    try:
+        with open(args[1], "x"):
+            pass
+    except FileExistsError:
+        sys.exit("\x1b[31mFile already exists.\x1b[0m")
+
 cTof = {
     "clipboard":clipboard,
     "c":clipboard,
     "del":delete,
     "delete":delete,
     "d":delete,
-    "rename":rename
+    "rename":rename,
+    "new":newfile
 }
 
 def main(args: list[str]):
