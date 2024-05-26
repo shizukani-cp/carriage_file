@@ -1,4 +1,4 @@
-import sys, os
+import sys, os, subprocess
 import modules
 
 if len(sys.argv) == 2:
@@ -22,7 +22,7 @@ while True:
     try:
         os.chdir((["../"] + os.listdir())[int(c[0])])
     except NotADirectoryError:
-        sys.exit("\x1b[31mIt's can't openable.\x1b[0m")
+        subprocess.run("vim " + os.listdir()[int(c[0])], shell=True)
     except ValueError:
         if c[0] == "e" or c[0] == "exit":
             break
