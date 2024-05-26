@@ -38,10 +38,10 @@ def clipboard(args: list[str]):
         sys.exit("\x1b[31mSubcommand not found.\x1b[0m")
 
 def delete(args: list[str]):
-    if os.path.isfile(num_to_name(args[2])):
-        os.remove(num_to_name(args[2]))
-    elif os.path.isdir(num_to_name(args[2])):
-        shutil.rmtree(num_to_name(args[2]))
+    if os.path.isfile(num_to_name(args[1])):
+        os.remove(num_to_name(args[1]))
+    elif os.path.isdir(num_to_name(args[1])):
+        shutil.rmtree(num_to_name(args[1]))
 
 cTof = {
     "clipboard":clipboard,
