@@ -4,6 +4,7 @@ EMPTY_CLIPBOARD_CONTENTS = {"fname":None,"content":None}
 clipboard_contents = EMPTY_CLIPBOARD_CONTENTS
 
 def clipboard(args: list[str]):
+    if not os.path.isfile(args[2]): sys.exit("\x1b[31mIs not file.\x1b[0m")
     if args[1] == "v":
         if clipboard_contents == EMPTY_CLIPBOARD_CONTENTS:
             sys.exit("\x1b[31mThere are no items on the clipboard.\x1b[0m")
