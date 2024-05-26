@@ -3,6 +3,9 @@ import sys, os
 EMPTY_CLIPBOARD_CONTENTS = {"fname":None,"content":None}
 clipboard_contents = EMPTY_CLIPBOARD_CONTENTS
 
+def num_to_name(n: int):
+    return os.listdir()[int(n) - 1]
+
 def clipboard(args: list[str]):
     if args[1] == "v":
         if not clipboard_contents == EMPTY_CLIPBOARD_CONTENTS:
@@ -14,23 +17,23 @@ def clipboard(args: list[str]):
             sys.exit("\x1b[31mFile already exists.\x1b[0m")
     elif args[1] == "c":
         try:
-         if not os.path.isfile(os.listdir()[int(args[2]) - 1]):
+         if not os.path.isfile(num_to_name(args[2])):
             sys.exit("\x1b[31mIs not file.\x1b[0m")
         except IndexError:
             sys.exit("\x1b[31mMissing arguments.\x1b[0m")
-        with open(os.listdir()[int(args[2]) - 1], "rb") as f:
-            clipboard_contents["fname"] = os.listdir()[int(args[2]) - 1]
+        with open(num_to_name(args[2]), "rb") as f:
+            clipboard_contents["fname"] = num_to_name(args[2])
             clipboard_contents["content"] = f.read()
     elif args[1] == "x":
         try:
-         if not os.path.isfile(os.listdir()[int(args[2]) - 1]):
+         if not os.path.isfile(num_to_name(args[2])):
             sys.exit("\x1b[31mIs not file.\x1b[0m")
         except IndexError:
             sys.exit("\x1b[31mMissing arguments.\x1b[0m")
-        with open(os.listdir()[int(args[2]) - 1], "rb") as f:
-            clipboard_contents["fname"] = os.listdir()[int(args[2]) - 1]
+        with open(num_to_name(args[2]), "rb") as f:
+            clipboard_contents["fname"] = num_to_name(args[2])
             clipboard_contents["content"] = f.read()
-        os.remove(os.listdir()[int(args[2]) - 1])
+        os.remove(num_to_name(args[2]))
     else:
         sys.exit("\x1b[31mSubcommand not found.\x1b[0m")
 
