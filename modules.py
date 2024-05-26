@@ -1,4 +1,4 @@
-import sys, os
+import sys, os, shutil
 
 EMPTY_CLIPBOARD_CONTENTS = {"fname":None,"content":None}
 clipboard_contents = EMPTY_CLIPBOARD_CONTENTS
@@ -37,9 +37,18 @@ def clipboard(args: list[str]):
     else:
         sys.exit("\x1b[31mSubcommand not found.\x1b[0m")
 
+def delete(args: list[str]):
+    if os.path.isfile(os.listdir()[int(args[1]) - 1]):
+        os.remove(num_to_name(args[2]))
+    elif os.path.isdir(num_to_name(args[2])):
+        shutil.rmtree(num_to_name(args[2]))
+
 cTof = {
     "clipboard":clipboard,
-    "c":clipboard
+    "c":clipboard,
+    "del":delete,
+    "delete":delete,
+    "d":delete
 }
 
 def main(args: list[str]):
