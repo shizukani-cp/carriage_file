@@ -43,12 +43,16 @@ def delete(args: list[str]):
     elif os.path.isdir(num_to_name(args[1])):
         shutil.rmtree(num_to_name(args[1]))
 
+def rename(args: list[str]):
+    os.rename(num_to_name(args[1]), args[2])
+
 cTof = {
     "clipboard":clipboard,
     "c":clipboard,
     "del":delete,
     "delete":delete,
-    "d":delete
+    "d":delete,
+    "rename":rename
 }
 
 def main(args: list[str]):
