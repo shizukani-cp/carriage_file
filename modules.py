@@ -1,4 +1,4 @@
-import sys, os, shutil, pyperclip
+import sys, os, shutil, pyperclip, subprocess
 
 EMPTY_CLIPBOARD_CONTENTS = {"fname":None,"content":None}
 clipboard_contents = EMPTY_CLIPBOARD_CONTENTS
@@ -56,6 +56,9 @@ def newfile(args: list[str]):
 def copy_chdir_command(args: list[str]):
     pyperclip.copy(f"cd {os.getcwd()}")
 
+def shell(args: list[str]):
+    subprocess.run(" ".join(args[1:]), shell=True)
+
 cTof = {
     "clipboard":clipboard,
     "c":clipboard,
@@ -64,7 +67,8 @@ cTof = {
     "d":delete,
     "rename":rename,
     "new":newfile,
-    "chdir":copy_chdir_command
+    "chdir":copy_chdir_command,
+    "shell":shell
 }
 
 def main(args: list[str]):
