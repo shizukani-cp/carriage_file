@@ -1,5 +1,5 @@
 import sys, os, subprocess
-import modules, setting
+import modules, coloring
 
 if len(sys.argv) == 2:
     try:
