@@ -1,5 +1,5 @@
 import sys, os, subprocess
-import modules
+import modules, setting
 
 if len(sys.argv) == 2:
     try:
