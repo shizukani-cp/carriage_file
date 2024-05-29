@@ -1,4 +1,4 @@
-import sys, os, shutil
+import sys, os, shutil, pyperclip
 
 EMPTY_CLIPBOARD_CONTENTS = {"fname":None,"content":None}
 clipboard_contents = EMPTY_CLIPBOARD_CONTENTS
@@ -53,6 +53,9 @@ def newfile(args: list[str]):
     except FileExistsError:
         sys.exit("\x1b[31mFile already exists.\x1b[0m")
 
+def copy_chdir_command(args: list[str]):
+    pyperclip.copy(f"cd {os.getcwd()}")
+
 cTof = {
     "clipboard":clipboard,
     "c":clipboard,
@@ -60,7 +63,8 @@ cTof = {
     "delete":delete,
     "d":delete,
     "rename":rename,
-    "new":newfile
+    "new":newfile,
+    "chdir":copy_chdir_command
 }
 
 def main(args: list[str]):
