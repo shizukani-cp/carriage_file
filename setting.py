@@ -4,4 +4,4 @@ with open(pathlib.Path(os.path.dirname(__file__)) / "settings.json", "r", encodi
     settings = json.loads(f.read())
 
 def get_setting(name: str):
-    return settings["color"][name]
+    return settings[name]
