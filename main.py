@@ -1,5 +1,5 @@
 import sys, os, subprocess
-import modules
+import modules, openfile
 from coloring import coloring
 
 if len(sys.argv) == 2:
@@ -23,7 +23,7 @@ while True:
     try:
         os.chdir((["../"] + os.listdir())[int(c[0])])
     except NotADirectoryError:
-        subprocess.run("vim " + os.listdir()[int(c[0]) - 1], shell=True)
+        openfile.open_file(os.listdir()[int(c[0]) - 1])
     except ValueError:
         if c[0] in ["e", "exit", "q", "quit"]:
             break

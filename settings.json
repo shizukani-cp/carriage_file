@@ -4,5 +4,11 @@
         "dir":32,
         "file":33,
         "error":31
-    }
+    },
+    "open_program":[
+        {
+            "file":".*\\.txt",
+            "command":"vim {filename}"
+        }
+    ]
 }
