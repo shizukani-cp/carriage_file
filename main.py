@@ -12,11 +12,11 @@ elif len(sys.argv) > 2:
 
 while True:
     print(coloring(os.getcwd(), "chdir"))
-    print(coloring("..", "dir"))
+    print("0\t", coloring("..", "dir"), sep="")
     for i in range(len(os.listdir())):
         print(str(i + 1) + "\t", end="")
         if os.path.isfile(os.listdir()[i]):
-            print(coloring(os.listdir[i], "file"))
+            print(coloring(os.listdir()[i], "file"))
         else:
             print(coloring(os.listdir()[i], "dir"))
     c = input("> ").split(" ")
