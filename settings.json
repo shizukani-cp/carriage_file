@@ -1,6 +1,8 @@
 {
-    "chdir":34,
-    "dir":32,
-    "file":33,
-    "error":31
+    "color":{
+        "chdir":34,
+        "dir":32,
+        "file":33,
+        "error":31
+    }
 }
