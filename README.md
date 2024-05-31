@@ -3,6 +3,19 @@
 名前のように、ユーザーをファイルのある場所へ移動させる、CUIのソフトです。
 ただし、Windowsのエクスプローラーのようなファイラーの機能も持っています。
 ## 使い方
+### 実行ファイル化
+リポジトリには、実行ファイルは含まれていません。ですので、ご自身で実行ファイル化してください。
+例を示します。
+```shell
+python -m pip install pyinstaller
+git clone https://github.com/shizukani-cp/carriage_file.git
+cd carriage_file
+pyinstaller main.py --onefile
+cd dist
+ren main.exe cf.exe
+set PATH=%PATH%;%CD%
+cf
+```
 ### 起動
 ```shell
 cf
