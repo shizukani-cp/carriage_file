@@ -7,22 +7,22 @@
 リポジトリには、実行ファイルは含まれていません。ですので、ご自身で実行ファイル化してください。
 例を示します。
 ```shell
-python -m pip install pyinstaller
-git clone https://github.com/shizukani-cp/carriage_file.git
-cd carriage_file
-pyinstaller main.py --onefile
-cd dist
-ren main.exe cf.exe
-set PATH=%PATH%;%CD%
-cf
+$ python -m pip install pyinstaller
+$ git clone https://github.com/shizukani-cp/carriage_file.git
+$ cd carriage_file
+$ pyinstaller main.py --onefile
+$ cd dist
+$ ren main.exe cf.exe
+$ set PATH=%PATH%;%CD%
+$ cf
 ```
 ### 起動
 ```shell
-cf
+$ cf
 ```
 ### 最初のディレクトリを指定しての起動
 ```shell
-cf 最初のディレクトリ
+$ cf 最初のディレクトリ
 ```
 ### ディレクトリへの移動
 ```
@@ -58,5 +58,5 @@ cf 最初のディレクトリ
 ```
 ### シェルコマンドを実行
 ```
-shell シェルでのコマンド
+> shell シェルでのコマンド
 ```
