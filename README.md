@@ -10,9 +10,8 @@
 $ python -m pip install pyinstaller
 $ git clone https://github.com/shizukani-cp/carriage_file.git
 $ cd carriage_file
-$ pyinstaller main.py --onefile
+$ pyinstaller cf.py --onefile
 $ cd dist
-$ ren main.exe cf.exe
 $ set PATH=%PATH%;%CD%
 $ cf
 ```
