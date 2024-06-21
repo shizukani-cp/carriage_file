@@ -15,6 +15,12 @@ $ cd dist
 $ set PATH=%PATH%;%CD%
 $ cf
 ```
+### 実行ファイル化せずに直接実行する場合
+```shell
+$ git clone https://github.com/shizukani-cp/carriage_file.git
+$ cd carriage_file
+$ python cf.py
+```
 ### 起動
 ```shell
 $ cf
