@@ -1,4 +1,4 @@
-import sys, os, subprocess
+import sys, os
 import modules, openfile
 from coloring import coloring
 
