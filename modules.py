@@ -1,5 +1,5 @@
 import sys, os, shutil, pyperclip, subprocess
-import coloring
+from coloring import coloring
 
 EMPTY_CLIPBOARD_CONTENTS = {"fname":None,"content":None}
 clipboard_contents = EMPTY_CLIPBOARD_CONTENTS
