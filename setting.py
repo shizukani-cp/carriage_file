@@ -1,7 +1,6 @@
-import json, pathlib, subprocess
+import json, pathlib, sys
 
-with open(pathlib.Path(subprocess.run("where cf", encoding='utf-8', stdout=subprocess.PIPE)
-                       .stdout.split("\n")[0]).parent / "settings.json",
+with open(pathlib.Path(sys.argv[0]).parent / "settings.json",
           "r", encoding="utf-8") as f:
     settings = json.loads(f.read())
 
