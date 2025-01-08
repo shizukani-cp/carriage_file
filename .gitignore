@@ -1,4 +1,5 @@
 setup.py
+*.spec
 dist/
 build/
 __pycache__
