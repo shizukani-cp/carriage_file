@@ -1,14 +1,14 @@
 {
-    "color":{
-        "chdir":34,
-        "dir":32,
-        "file":33,
-        "error":31
-    },
-    "open_program":[
-        {
-            "file":".*\\.txt",
-            "command":"vim {filename}"
-        }
-    ]
+  "color": {
+    "chdir": 34,
+    "dir": 32,
+    "file": 33,
+    "error": 31
+  },
+  "open_program": [
+    {
+      "file": ".*\\.(txt|py|rs|json|js|html|css)",
+      "command": "hx {filename}"
+    }
+  ]
 }
