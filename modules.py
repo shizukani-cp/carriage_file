@@ -1,7 +1,8 @@
-import sys, os, shutil, pyperclip, subprocess
+import sys, os, shutil, subprocess
+import pyperclip
 from coloring import coloring
 
-EMPTY_CLIPBOARD_CONTENTS = {"fname":None,"content":None}
+EMPTY_CLIPBOARD_CONTENTS = {"fname":None, "content":None}
 clipboard_contents = EMPTY_CLIPBOARD_CONTENTS
 
 def num_to_name(n: int):
@@ -16,6 +17,7 @@ def clipboard(args: list[str]):
                 f.write(clipboard_contents["content"])
         except FileExistsError:
             sys.exit(coloring("File already exists.", "error"))
+
     elif args[1] == "c":
         try:
          if not os.path.isfile(num_to_name(args[2])):
@@ -25,6 +27,7 @@ def clipboard(args: list[str]):
         with open(num_to_name(args[2]), "rb") as f:
             clipboard_contents["fname"] = num_to_name(args[2])
             clipboard_contents["content"] = f.read()
+
     elif args[1] == "x":
         try:
          if not os.path.isfile(num_to_name(args[2])):
@@ -35,12 +38,14 @@ def clipboard(args: list[str]):
             clipboard_contents["fname"] = num_to_name(args[2])
             clipboard_contents["content"] = f.read()
         os.remove(num_to_name(args[2]))
+
     else:
         sys.exit(coloring("Subcommand not found.", "error"))
 
 def delete(args: list[str]):
     if os.path.isfile(num_to_name(args[1])):
         os.remove(num_to_name(args[1]))
+
     elif os.path.isdir(num_to_name(args[1])):
         shutil.rmtree(num_to_name(args[1]))
 
@@ -61,15 +66,15 @@ def shell(args: list[str]):
     subprocess.run(" ".join(args[1:]), shell=True)
 
 cTof = {
-    "clipboard":clipboard,
-    "c":clipboard,
-    "del":delete,
-    "delete":delete,
-    "d":delete,
-    "rename":rename,
-    "new":newfile,
-    "chdir":copy_chdir_command,
-    "shell":shell
+    "clipboard": clipboard,
+    "c": clipboard,
+    "del": delete,
+    "delete": delete,
+    "d": delete,
+    "rename": rename,
+    "new": newfile,
+    "chdir": copy_chdir_command,
+    "shell": shell
 }
 
 def main(args: list[str]):
